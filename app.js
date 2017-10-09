@@ -30,15 +30,14 @@ app.get('/users', function(req, res){
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.post('/user', urlencodedParser, function(req, res){
-    res.send('post recieved')
     MongoClient.connect("mongodb://localhost:27017/mega_app", function (err, db) {
         db.collection('users', function (err, collection) {
             
             collection.insert({name: req.body.name, age: 20 });         
         });
-        db.close();
-                    
+        db.close();        
     });
+    res.redirect('/users')
 })
 
 app.listen(3000, function () {
