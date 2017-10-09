@@ -1,8 +1,14 @@
 html
   head
-    title= 'title'
+    title= 'Users'
   body
     h1= 'Users Page'
     ul
       each val in users
         li= val.name
+
+    form(method='POST' action='/user')
+          div.form-group
+            label(for='name') Name:
+            input#name.form-control(type='text', placeholder='name' name='name')
+          button.btn.btn-primary(type='submit') Add User
