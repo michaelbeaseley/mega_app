@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
 var MongoClient = require('mongodb').MongoClient;
+app.set('view engine', 'pug');
+app.set('views', './views')
 
 app.get('/', function (req, res) {
   res.send('Hello World!')
@@ -14,7 +16,8 @@ app.get('/users', function(req, res){
             
              collection.find().toArray(function(err, items) {
                 if(err) throw err;    
-                console.log(items);         
+                res.render('users.pug', {users: items});
+                db.close();         
             });
             
         });
