@@ -1,0 +1,27 @@
+{
+  "name": "mega_app",
+  "version": "1.0.0",
+  "description": "Testing out docker, express, mongo and pug",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alex-m-taylor/mega_app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alex-m-taylor/mega_app/issues"
+  },
+  "homepage": "https://github.com/alex-m-taylor/mega_app#readme",
+  "dependencies": {
+    "express": "^4.16.1",
+    "mongodb": "^2.2.31",
+    "pug": "^2.0.0-rc.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
