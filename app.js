@@ -1,8 +1,11 @@
-const express = require('express')
-const app = express()
-var MongoClient = require('mongodb').MongoClient;
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser')
+const MongoClient = require('mongodb').MongoClient;
 app.set('view engine', 'pug');
-app.set('views', './views')
+app.set('views', './views');
+
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.get('/', function (req, res) {
   res.send('Hello World!')
@@ -21,6 +24,19 @@ app.get('/users', function(req, res){
             });
             
         });
+                    
+    });
+})
+
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+app.post('/user', urlencodedParser, function(req, res){
+    res.send('post recieved')
+    MongoClient.connect("mongodb://localhost:27017/mega_app", function (err, db) {
+        db.collection('users', function (err, collection) {
+            
+            collection.insert({name: req.body.name, age: 20 });         
+        });
+        db.close();
                     
     });
 })

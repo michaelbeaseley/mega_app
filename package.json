@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/alex-m-taylor/mega_app#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.1",
     "mongodb": "^2.2.31",
     "prettier": "^1.7.4",
