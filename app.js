@@ -5,6 +5,10 @@ app.get('/', function (req, res) {
   res.send('Hello World!')
 })
 
+app.get('/users', function(req, res){
+    res.send('Welcome to the users page');
+})
+
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
 })
